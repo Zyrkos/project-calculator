@@ -4,7 +4,7 @@ class Calculator {
         this.currentOperandTextElement = currentOperandTextElement;
     }
 
-    clear(){
+    clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         //this.operation = undefined;
@@ -16,7 +16,7 @@ class Calculator {
     }
 
     appendNumber(number) {
-        this.currentOperand = number;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
 
     }
 
@@ -29,7 +29,7 @@ class Calculator {
     }
 
     updateDisplay () {
-        this.currentOperandTextElement.innerText = this.currentOperand;
+        this.currentOperandTextElement.innerHTML = this.currentOperand;
 
     }
 
