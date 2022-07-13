@@ -7,15 +7,16 @@ class Calculator {
     clear() {
         this.currentOperand = '';
         this.previousOperand = '';
-        //this.operation = undefined;
+        this.operation = undefined;
 
     }
 
-    delete() {
+    del() {
 
     }
 
     appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return;
         this.currentOperand = this.currentOperand.toString() + number.toString();
 
     }
@@ -29,17 +30,13 @@ class Calculator {
     }
 
     updateDisplay () {
-        this.currentOperandTextElement.innerHTML = this.currentOperand;
+        this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
 
     }
 
 
     
 }
-
-
-
-
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
